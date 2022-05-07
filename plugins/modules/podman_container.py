@@ -373,6 +373,13 @@ options:
         type: list
         elements: str
         required: false
+      requires:
+        description:
+          - Add the systemd unit requires (``Requires=``) option, that this service is (strong) dependent on.
+            Refer to podman-generate-systemd(1) for more information.
+        type: list
+        elements: str
+        required: false
   gidmap:
     description:
       - Run the container in a new user namespace using the supplied mapping.

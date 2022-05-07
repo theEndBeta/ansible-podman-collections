@@ -60,6 +60,9 @@ def generate_systemd(module, module_params, name):
     if sysconf.get('wants') is not None:
         sysd_wants = sysconf['wants'] if isinstance(sysconf['wants'], list) else [sysconf['wants']]
         command.extend(['--wants=%s' % sysd_want for sysd_want in sysd_wants])
+    if sysconf.get('requires') is not None:
+        sysd_requires = sysconf['requires'] if isinstance(sysconf['requires'], list) else [sysconf['requires']]
+        command.extend(['--requires=%s' % sysd_require for sysd_require in sysd_requires])
     if module.params['debug'] or module_params['debug']:
         module.log("PODMAN-CONTAINER-DEBUG: systemd command: %s" %
                    " ".join(command))

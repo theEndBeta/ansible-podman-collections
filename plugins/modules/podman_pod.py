@@ -163,6 +163,28 @@ options:
             Refer to podman-generate-systemd(1) for more information.
         type: bool
         default: false
+      wants:
+        description:
+          - Add the systemd unit wants (``Wants=``) option, that this service is (weak) dependent on.
+            Refer to podman-generate-systemd(1) for more information.
+        type: list
+        elements: str
+        required: false
+      after:
+        description:
+          - Add the systemd unit after (``After=``) option, that ordering dependencies between
+            the list of dependencies and this service.
+            Refer to podman-generate-systemd(1) for more information.
+        type: list
+        elements: str
+        required: false
+      requires:
+        description:
+          - Add the systemd unit requires (``Requires=``) option, that this service is (strong) dependent on.
+            Refer to podman-generate-systemd(1) for more information.
+        type: list
+        elements: str
+        required: false
   gidmap:
     description:
     - GID map for the user namespace. Using this flag will run the container with
